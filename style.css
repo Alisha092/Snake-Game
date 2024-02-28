@@ -31,7 +31,12 @@ main {
 .cell {
     width: 12.5%;
     height: 12.5%;
-    background-color: aqua;
+}
+
+.snake {
+    width: 12.5%;
+    height: 12.5%;
+    background-color: #9f454b;
 }
 
 h1 {
