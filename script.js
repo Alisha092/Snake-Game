@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameOver = false;
     let isWinner = false;
     let score = 0;
+    let direction = 'right'; // Initial direction
+    let snake = [27]; // Initial position of the snake on the grid
 
     const map = [
         0, 0, 0, 0, 0, 0, 0, 0,
@@ -29,16 +31,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    function keyDownHandler(event) {
-        console.log(event);
-        gameOver = true;
+    function updateGame() {
+        // Update snake's position based on direction
+        // Check for game over conditions
+        // Move the snake and check for food collision
+        // Render the updated state
     }
+
+    function keyDownHandler(event) {
+        switch (event.key) {
+            case "ArrowUp":
+                direction = 'up';
+                break;
+            case "ArrowDown":
+                direction = 'down';
+                break;
+            case "ArrowLeft":
+                direction = 'left';
+                break;
+            case "ArrowRight":
+                direction = 'right';
+                break;
+        }
+    }
+
+    document.addEventListener('keydown', keyDownHandler);
 
     function gameStart() {
         createMap(map);
-        while (!gameOver && !isWinner) {
-            document.addEventListener('keydown', keyDownHandler);
-        }
+        setInterval(updateGame, 100); // Call updateGame every 100ms
     }
 
     startBtn.addEventListener('click', gameStart);
